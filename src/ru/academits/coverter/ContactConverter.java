@@ -7,7 +7,7 @@ import ru.academits.model.Contact;
 import java.util.List;
 
 public class ContactConverter {
-    private Gson gson = new GsonBuilder().create();
+    private final Gson gson = new GsonBuilder().create();
 
     public String convertToJson(List<Contact> contactList) {
         return gson.toJson(contactList);

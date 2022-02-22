@@ -4,12 +4,12 @@ public class ContactValidation {
     private boolean valid;
     private String error;
 
-    public boolean isValid() {
-        return valid;
+    public ContactValidation() {
+        this.valid = true;
     }
 
-    public void setValid(boolean valid) {
-        this.valid = valid;
+    public boolean isValid() {
+        return valid;
     }
 
     public String getError() {
@@ -17,6 +17,7 @@ public class ContactValidation {
     }
 
     public void setError(String error) {
+        this.valid = false;
         this.error = error;
     }
 }

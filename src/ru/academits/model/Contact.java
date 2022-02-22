@@ -5,7 +5,6 @@ public class Contact {
     private String firstName;
     private String lastName;
     private String phone;
-    private boolean important;
 
     public int getId() {
         return id;
@@ -37,13 +36,5 @@ public class Contact {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public boolean isImportant() {
-        return important;
-    }
-
-    public void setImportant(boolean important) {
-        this.important = important;
     }
 }

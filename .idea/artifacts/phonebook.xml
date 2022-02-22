@@ -18,9 +18,6 @@
       <element id="directory" name="js">
         <element id="dir-copy" path="$PROJECT_DIR$/webapp/js" />
       </element>
-      <element id="directory" name="themes">
-        <element id="dir-copy" path="$PROJECT_DIR$/webapp/themes" />
-      </element>
     </root>
   </artifact>
 </component>

@@ -6,12 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Created by Anna on 17.06.2017.
- */
 public class ContactDao {
-    private List<Contact> contactList = new ArrayList<>();
-    private AtomicInteger idSequence = new AtomicInteger(0);
+    private final List<Contact> contactList = new ArrayList<>();
+    private final AtomicInteger lastContactId = new AtomicInteger(0);
 
     public ContactDao() {
         Contact contact = new Contact();
@@ -20,11 +17,12 @@ public class ContactDao {
         contact.setFirstName("Иван");
         contact.setLastName("Иванов");
         contact.setPhone("9123456789");
+
         contactList.add(contact);
     }
 
     private int getNewId() {
-        return idSequence.addAndGet(1);
+        return lastContactId.addAndGet(1);
     }
 
     public List<Contact> getAllContacts() {
@@ -33,6 +31,35 @@ public class ContactDao {
 
     public void add(Contact contact) {
         contact.setId(getNewId());
+
         contactList.add(contact);
+    }
+
+    public boolean remove(int id) {
+        if (id < 1 || id > lastContactId.get()) {
+            return false;
+        }
+
+        for (int i = contactList.size() - 1; i >= 0; i--) {
+            int contactId = contactList.get(i).getId();
+
+            if (contactId == id) {
+                contactList.remove(i);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean removeAll(int[] idArray) {
+        boolean isRemoved = false;
+
+        for (int id : idArray) {
+            isRemoved = isRemoved || remove(id);
+        }
+
+        return isRemoved;
     }
 }
