@@ -1,7 +1,7 @@
 package ru.academits.servlet;
 
 import ru.academits.PhoneBook;
-import ru.academits.coverter.ContactConverter;
+import ru.academits.coverter.ContactsConverter;
 import ru.academits.model.Contact;
 import ru.academits.service.ContactService;
 
@@ -14,13 +14,19 @@ import java.util.List;
 
 public class GetAllContactsServlet extends HttpServlet {
     private final ContactService phoneBookService = PhoneBook.phoneBookService;
-    private final ContactConverter contactConverter = PhoneBook.contactConverter;
+    private final ContactsConverter contactsConverter = PhoneBook.contactsConverter;
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try (OutputStream responseStream = resp.getOutputStream()) {
-            List<Contact> contactList = phoneBookService.getAllContacts();
+            String searchTerm = req.getParameter("term");
 
-            String contactListJson = contactConverter.convertToJson(contactList);
+            if (searchTerm == null) {
+                searchTerm = "";
+            }
+
+            List<Contact> contactList = phoneBookService.getAllContacts(searchTerm);
+
+            String contactListJson = contactsConverter.convertToJson(contactList);
 
             responseStream.write(contactListJson.getBytes(StandardCharsets.UTF_8));
         } catch (Exception e) {

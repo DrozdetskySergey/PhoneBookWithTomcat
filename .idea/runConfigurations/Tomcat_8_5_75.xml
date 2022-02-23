@@ -2,14 +2,14 @@
   <configuration default="false" name="Tomcat 8.5.75" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.75" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
-      <artifact name="phonebook">
+      <artifact name="phoneBookArtifact">
         <settings>
           <option name="CONTEXT_PATH" value="/" />
         </settings>
       </artifact>
     </deployment>
     <server-settings>
-      <option name="BASE_DIRECTORY_NAME" value="8368d315-bc53-4683-a2e1-486c61dd267d" />
+      <option name="BASE_DIRECTORY_NAME" value="d920257e-2adf-4ba9-9198-89bb22a6ef64" />
     </server-settings>
     <predefined_log_file enabled="true" id="Tomcat" />
     <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -17,7 +17,7 @@
     <predefined_log_file id="Tomcat Host Manager" />
     <predefined_log_file id="Tomcat Localhost Access" />
     <RunnerSettings RunnerId="Debug">
-      <option name="DEBUG_PORT" value="59285" />
+      <option name="DEBUG_PORT" value="64284" />
     </RunnerSettings>
     <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
       <option name="USE_ENV_VARIABLES" value="true" />
@@ -82,7 +82,7 @@
     <method v="2">
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="phonebook" />
+        <artifact name="phoneBookArtifact" />
       </option>
     </method>
   </configuration>

@@ -1,6 +1,6 @@
 package ru.academits;
 
-import ru.academits.coverter.ContactConverter;
+import ru.academits.coverter.ContactsConverter;
 import ru.academits.coverter.ContactValidationConverter;
 import ru.academits.coverter.IdArrayConverter;
 import ru.academits.dao.ContactDao;
@@ -15,7 +15,7 @@ public class PhoneBook {
 
     public static ContactService phoneBookService = new ContactService();
 
-    public static ContactConverter contactConverter = new ContactConverter();
+    public static ContactsConverter contactsConverter = new ContactsConverter();
 
     public static IdArrayConverter idArrayConverter = new IdArrayConverter();
 
